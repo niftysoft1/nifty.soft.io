@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YAML Converter to Properties file, Properties Converter to YAML File">
+    <meta name="author" content="YAML.Properties">
+    <title>YAML Converter to Properties file, Properties Converter to YAML File</title>
+    <style>
+        /* CSS styles for code block */
+        pre {
+            background-color: #f1f1f1;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 50px;
+            padding: 30px;
+        }
+  
+        .photo {
+            max-width: 31.333%;
+            padding: 0 10px;
+            height: 240px;
+        }
+  
+        .photo img {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Nitfy tool (Intelij Plugin)</h2>
+    <p>This tool allows you to convert properties files to YAML format and YAML files to properties format.</p>
+    <p>Just Right click on TreeView or Open file content</p>
+    <h2>Prerequisites</h2>
+    <ul>
+        <li>Intelij Version (Since IC-231.9011.34)</li>
+    </ul>
+    <h2>Plugin - Features</h2>
+    <h3>1. Properties to Yaml</h3>
+    <div class="images">
+        <div class="photo">
+            <img src="images/P_Y1.png" alt="Properties To YAML RightCLick" />
+        </div>
+  
+        <div class="photo">
+            <img src="images/P_Y2.png" alt="Properties To YAML RightCLick" />
+        </div>
+    </div>
+    <b>Input:</b> sample.properties
+    <pre>
+    <code>
+db.user=mkyong
+db.password=password
+db.url=localhost
+fValue=1.2
+iValue=100
+sValue=Hello world
+yamlconfig.list[0]=item1
+yamlconfig.list[1]=item2
+yamlconfig.list[2]=item3
+yamlconfig.list[3]=item4
+    </code>
+    </pre>
+    <b>Output:</b> sample.yaml
+    <pre>
+    <code>
+db:
+user: mkyong
+password: password
+url: localhost
+sValue: Hello world
+yamlconfig:
+list:
+- item1
+- item4
+- item3
+fValue: '1.2'
+iValue: '100'
+    </code>
+    </pre>
+    <h3>2. Yaml To Properties</h3>
+    <div class="images">
+        <div class="photo">
+            <img src="images/P_Y1.png" alt="Properties To YAML RightCLick" />
+        </div>
+  
+        <div class="photo">
+            <img src="images/P_Y2.png" alt="Properties To YAML RightCLick" />
+        </div>
+    </div>
+    <b>Input:</b> yaml_input.yaml
+    <pre>
+    <code>            
+application:
+  props:
+    name: YamlList
+    url: http://yamllist.dev
+    description: "Mapping list in Yaml to list of objects in Spring Boot"
+    ips:
+    -
+      ip: 10.10.10.10
+      port: 8091
+    -
+      email: support@yamllist.dev
+      contact: http://yamllist.dev/contact
+  users:
+    -
+      username: admin
+      password: admin@10@
+      roles:
+        - READ
+        - WRITE
+        - VIEW
+        - DELETE
+    -
+      username: guest
+      password: guest@01
+      roles:
+        - VIEW
+  profiles:
+    - dev
+    - test
+    - prod
+    - 1
+    - 2
+  list:
+    - item1
+    - item2
+    - item3
+    - item4
+    </code>
+</pre>
+    <b>Output:</b> yaml_output.yaml
+    <pre>
+    <code>
+application.list[0]=item1
+application.list[1]=item2
+application.list[2]=item3
+application.list[3]=item4
+application.profiles[0]=dev
+application.profiles[1]=test
+application.profiles[2]=prod
+application.profiles[3]=1
+application.profiles[4]=2
+application.props.description=Mapping list in Yaml to list of objects in Spring Boot
+application.props.ips[0].ip=10.10.10.10
+application.props.ips[0].port=8091
+application.props.ips[1].contact=http\://yamllist.dev/contact
+application.props.ips[1].email=support@yamllist.dev
+application.props.name=YamlList
+application.props.url=http\://yamllist.dev
+application.users[0].password=admin@10@
+application.users[0].roles[0]=READ
+application.users[0].roles[1]=WRITE
+application.users[0].roles[2]=VIEW
+application.users[0].roles[3]=DELETE
+application.users[0].username=admin
+application.users[1].password=guest@01
+application.users[1].roles[0]=VIEW
+application.users[1].username=guest
+    </code>
+</pre>
+
+    <h1>Contributing</h1>
+    <p>Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a
+        pull request.</p>
+    <h1>License</h1>
+    <p>TBD</p>
+</body>
